@@ -1,0 +1,137 @@
+@media screen and (max-width : 768px) {
+    .movie-card{
+        width: 140px !important;
+        height: 270px !important;
+        margin: 17px 7px !important;
+    }
+}
+
+.movie-card {
+    height: 214px;
+    width: 150px;
+    margin: 7px 30px;
+    border-radius: 7px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0.2rem 0.2rem 1rem #888888;
+    transition: 1s ease
+}
+
+.movie-card:hover {
+    transform:  rotate3d(0,1,0, 180deg)
+}
+
+
+.movie-card .img-container {
+    width: 100%;
+    height: 90%;
+    position: relative;
+}
+
+.movie-card .img-container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    transition: 0.5s ease
+}
+
+.movie-card .img-container .shadow{
+    position: absolute;
+    z-index: 100;
+    background:rgb(32, 32, 32);
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    border-radius: 7px;
+    display: none;
+}
+
+.movie-card:hover .img-container .shadow{
+    display: block
+}
+
+.movie-card .img-container .movie-info{
+    position: absolute;
+    z-index: 1200;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    transform:  rotate3d(0,1,0, 180deg);
+    display: none;
+    color: whitesmoke
+}
+
+.movie-card:hover .img-container .movie-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center
+}
+
+.movie-card .img-container .movie-info .movie-title{
+    font-size: 1.4rem;
+}
+
+.movie-card .img-container .movie-info  .genre,.year{
+    font-size: 0.7rem;
+}
+
+.movie-card .img-container .movie-info .info i{
+    color: #17a2b8;
+}
+
+.movie-card .img-container .movie-info .info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.movie-card .img-container .movie-info button{
+    background-color: #17a2b8;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    padding: 7px;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px;
+    transition: 0.5s ease;
+    font-family: 'Roboto Slab', serif;
+    cursor: pointer;
+}
+
+.movie-card .img-container .movie-info button:hover{
+    background-color: #138496
+}
+
+.movie-card .bottom-section{
+    background-color: whitesmoke;
+    height:10%;
+    display: flex;
+    align-items: center
+}
+
+.movie-card .bottom-section .movie-title,.rate{
+    font-size: 0.8rem;
+}
+
+.movie-card:hover .bottom-section .movie-title{
+    display: none
+}
+.movie-card .bottom-section .rate{
+    display: none;
+    transform: rotate3d(0,1,0,180deg);
+    transition : 1s ease;
+}
+
+.movie-card:hover .bottom-section .rate{
+    display: block
+}
+

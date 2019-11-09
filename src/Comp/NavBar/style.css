@@ -1,0 +1,266 @@
+@media screen and (max-width : 768px) {
+    .navbar-container {
+        height: auto !important;
+        align-items: flex-start !important;
+        padding-top : 17px;
+    }
+    .navbar-container .left-side {
+        display: none !important
+    }
+    .navbar-container .responsive-menu  {
+        display: block  !important;
+       
+    }
+
+    .navbar-container .search{
+        margin: 0 !important
+    }
+
+    .navbar-container .search button {
+        display: none
+    }
+
+}
+
+@media screen and (min-width : 769px) and (max-width : 1024px ) {
+    .navbar-container .left-side .links {
+          margin: 0 0 0 27px;  
+    }
+    .navbar-container .search{
+        margin: 0 !important
+    }
+    .navbar-container .search button {
+        display: none
+    }
+} 
+
+
+@media screen and (min-width : 1025px) and (max-width : 1199px) {
+    .navbar-container .search{
+        margin: 0 !important
+    }
+    .navbar-container .search button {
+        display: none
+    }
+    .navbar-container .search input {
+        margin: 0px
+    }
+}   
+
+
+.navbar-container {
+    height: 60px;
+    width: 100%;
+    background-color : black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.8;
+   
+}
+
+/* Left Side */
+
+.navbar-container .left-side {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-container .logo-container{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-container .logo-container a{
+   text-decoration: none;
+
+}
+
+.navbar-container .logo-container .logo {
+    transform: rotate3d(0,0,1, 350deg);
+    margin: 7px 7px 0 17px;
+}
+
+.navbar-container .logo-container .logo i{
+    color:#17a2b8;
+    font-size: 1.4rem;
+    cursor: pointer;
+    
+}
+
+.navbar-container .logo-container .title {
+    cursor: pointer;
+    color: whitesmoke;
+    font-size: 1rem;
+    letter-spacing: 1px;
+
+}
+
+
+.navbar-container .left-side .links {
+    display: flex;
+    margin: 0 0 0 67px;
+}
+
+.navbar-container .left-side .links a {
+    margin : 0 7px;
+    color: grey;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.7s ease
+}
+
+.navbar-container .left-side .links a:hover {
+    color: rgb(235, 235, 235)
+}
+
+.navbar-container .left-side .links .my-account-container  {
+    margin : 0 7px;
+    color: grey;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.7s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-container .left-side .links .my-account-container:hover {
+    color: rgb(235, 235, 235)
+}
+
+.navbar-container .left-side .links .my-account-container div{
+    display: none;
+    position: absolute;
+    background: black;
+    opacity: 0.8;
+    padding: 20px 7px;
+    min-width: 150px;
+    z-index: 1200;
+}
+
+.navbar-container .left-side .links .my-account-container:hover div{
+    display: flex;
+    flex-direction: column;
+    z-index: 20000;
+
+}
+
+.navbar-container .left-side .links .my-account-container  div a{
+    margin: 7px 0;
+}
+
+
+/* Right Side */
+
+.navbar-container .search {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 27px;
+}
+
+.navbar-container .search input{
+    background: none;
+    border: 1px solid #17a2b8;
+    margin: 0 17px;
+    height: 27px;
+    color: whitesmoke;
+    border-radius: 7px;
+    outline: none;
+    padding: 3px 7px;
+    font-size: 0.8rem;
+    min-width: 220px;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 1.2px
+}
+
+.navbar-container .search button {
+    background-color: #17a2b8;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    padding: 0 17px;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px;
+    transition: 0.5s ease;
+    font-family: 'Roboto Slab', serif;
+    cursor: pointer;
+}
+
+.navbar-container .search button:hover {
+    background-color: #138496
+}
+
+
+/* Responsive Burger Menu */
+
+.navbar-container .responsive-menu{
+    display: none
+}
+.navbar-container .responsive-menu i {
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-left: 17px;
+}
+
+.navbar-container .responsive-menu ul{
+    display: none 
+}
+
+.navbar-container .responsive-menu .ul-active {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin : 0 0 7px 27px 
+}
+
+.navbar-container .responsive-menu .ul-active + .search{
+    display: none
+}
+
+.navbar-container .responsive-menu ul a {
+    margin :  7px 0;
+    color: grey;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: 0.7s ease
+
+}   
+
+.navbar-container .responsive-menu ul a:hover {
+    color: rgb(235, 235, 235)
+}
+
+.navbar-container .responsive-menu .my-account-container-resp {
+    color: grey;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: 0.7s ease;
+    cursor: pointer;
+    position: relative;
+   
+}
+
+.navbar-container .responsive-menu .my-account-container-resp:hover {
+    color: rgb(235, 235, 235)  
+}
+
+.navbar-container .responsive-menu .my-account-container-resp div{
+    position: absolute;
+    display: none;
+    padding-left: 17px
+}
+
+.navbar-container .responsive-menu .my-account-container-resp:hover div{
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    background-color: black;
+    opacity: 0.8;
+   
+}
+.navbar-container .search-disabled{
+    display: none
+}

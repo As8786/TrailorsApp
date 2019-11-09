@@ -1,0 +1,70 @@
+.footer-container{
+    background-color: #000;
+    width: 100%;
+    height: 120px;
+    margin: 170px 0 0 0;
+    position: absolute;
+    bottom: 0;
+    color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: .8rem;
+    text-align: center
+}
+
+.footer-container .social-media .img-container i{
+    margin: 7px;
+    font-size: 1rem
+}
+
+.fcbk{
+    color: #3b5998;
+    background: whitesmoke;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.twit{
+    color: #55acee;
+    background: whitesmoke;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.pint {
+    color: #bd081c;
+    background: whitesmoke;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.goog {
+    background: #bd081c;
+    color: whitesmoke;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.vk {
+    color: #3b5998;
+    background: whitesmoke;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.heart {
+    color: #bd081c;
+    background: black;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 1.1rem
+}
+
+.footer-container a {
+    text-decoration: none;
+    outline: none
+}
+
+.footer-container a:visited{
+    background: none
+}

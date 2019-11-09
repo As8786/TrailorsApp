@@ -1,0 +1,13 @@
+.moviesHomeList-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+
+.moviesHomeList-container a {
+    outline: none;
+    text-decoration: none;
+    color: whitesmoke
+}
+
