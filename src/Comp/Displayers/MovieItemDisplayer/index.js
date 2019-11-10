@@ -8,6 +8,7 @@ class MovieItem extends React.Component {
 
     render() {
         let { movie } = this.props
+        console.log(movie.rate)
         return <div className="movie-card">
             <div className="img-container">
                 <img src={movie.img} />
@@ -24,7 +25,7 @@ class MovieItem extends React.Component {
             </div>
             <div className="bottom-section">
                 <div className="movie-title"> {movie.name} </div>
-                <div className="rate"> Rated: {movie.rate}  / 10</div>
+                <div className="movie-rate"> Rated: {movie.rate} </div>
             </div>
         </div>
     }

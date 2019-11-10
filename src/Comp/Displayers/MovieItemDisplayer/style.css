@@ -118,20 +118,20 @@
     align-items: center
 }
 
-.movie-card .bottom-section .movie-title,.rate{
+.movie-card .bottom-section .movie-title,.movie-rate{
     font-size: 0.8rem;
 }
 
 .movie-card:hover .bottom-section .movie-title{
     display: none
 }
-.movie-card .bottom-section .rate{
+.movie-card .bottom-section .movie-rate{
     display: none;
     transform: rotate3d(0,1,0,180deg);
     transition : 1s ease;
 }
 
-.movie-card:hover .bottom-section .rate{
+.movie-card:hover .bottom-section .movie-rate{
     display: block
 }
 

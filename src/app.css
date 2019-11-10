@@ -1,15 +1,15 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #f3f9fe;
-    font-family: 'Roboto Slab', serif !important;
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f3f9fe;
+	font-family: 'Roboto Slab', serif !important;
 }
 
 .app {
-    position: relative;
-    min-height: 100vh;
+	position: relative;
+	min-height: 100vh;
 }
-.padding{
-    height: 160px;
-    width: 100%
+.padding {
+	height: 160px;
+	width: 100%;
 }

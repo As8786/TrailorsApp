@@ -23,7 +23,7 @@ class NavBar extends React.Component {
                 <div className="logo-container">
                     <div className="logo">
                         <Link to="/">
-                            <i className="fi-xnsuxl-videocamera-solid" title='Home' ></i>
+                            <img src="./img/movie.png" />
                         </Link>
                     </div>
                     <Link to="/">
@@ -36,7 +36,7 @@ class NavBar extends React.Component {
                     <Link title='Movie' to="/movies-list">
                         Movie
                     </Link>
-                    <Link title='TV Shows'>
+                    <Link to='/carrousel' title='TV Shows'>
                         TV Shows
                     </Link>
                     <div className="my-account-container" title='My Account'>
@@ -55,7 +55,7 @@ class NavBar extends React.Component {
                     <Link title='Movie' to="/movies-list">
                         Movie
                 </Link>
-                    <Link title='TV Shows'>
+                    <Link title='TV Shows' to='/carrousel'>
                         TV Shows
                 </Link>
                     <div className="my-account-container-resp" title='My Account'>
