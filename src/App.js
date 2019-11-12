@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom'
 
-import NavBar from './Comp/NavBar'
-import Footer from "./Comp/Footer"
+import NavBar from './Comp/Displayers/NavBar'
+import Footer from "./Comp/Displayers/Footer"
 import Routes from "./Routes"
 import MoviesContext from "./context/MoviesContext"
 
@@ -20,7 +20,7 @@ const App = () => {
             <MoviesContext.Provider value={moviesList} >
                 <Routes />
             </MoviesContext.Provider>
-            <div className="padding" />
+
             <Footer />
         </div>
     </BrowserRouter>

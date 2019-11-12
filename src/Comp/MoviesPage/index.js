@@ -16,6 +16,26 @@ class MoviesPage extends React.Component {
         language: "",
     }
 
+    filterResult = (movies) => {
+        let { genre, from, to, rate, language } = this.state
+        if (genre !== "") {
+            movies = movies.filter(el => el.genre.indexOf(genre) !== -1)
+        }
+        if (from !== "") {
+            movies = movies.filter(el => el.year >= from)
+        }
+        if (to !== "") {
+            movies = movies.filter(el => el.year <= to)
+        }
+        if (rate !== "") {
+            movies = movies.filter(el => el.rate >= rate)
+        }
+        if (language !== "") {
+            movies = movies.filter(el => el.language.indexOf(language) !== -1)
+        }
+        return movies
+    }
+
 
     handleSubFilterValuesDisplay = async (filterName) => {
         // Close All FiltersValues open before
@@ -124,8 +144,10 @@ class MoviesPage extends React.Component {
                 <button onClick={this.clearFilterValues}> Clear </button>
             </div>
             <MoviesContext.Consumer >
-                {val => <MoviesList movies={val} />}
+                {val => <MoviesList movies={this.filterResult(val)} />}
             </MoviesContext.Consumer>
+            <div className="padding" />
+
         </div>
     }
 }
@@ -135,7 +157,7 @@ export default MoviesPage
 
 
 
-let yearsTab = [2019, 2018, 2017, 2016, 2015, 2014,2019, 2018, 2017, 2016, 2015, 2014,2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2008,2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987]
+let yearsTab = [2019, 2018, 2017, 2016, 2015, 2014, 2019, 2017, 2016, 2015, 2014, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2008, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2003, 2002, 2001, 2000, 1999, 1998, 1997, 1996, 1995, 1994, 1993, 1992, 1991, 1990, 1989, 1988, 1987]
 let ratesTab = [9, 8, 7, 6, 5, 4, 3, 2, 1]
 let languagesTab = ["English", "French", "Russian", "Arabic", "Espagnol"]
 let genresTab = ["Action", "Adventure", "Comedy", "Drama", "Thriller"]

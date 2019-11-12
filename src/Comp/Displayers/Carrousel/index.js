@@ -158,10 +158,10 @@ class Carrousel extends React.Component {
                     <div className="next" onClick={() => this.handlePrevNextClick('next')}> &#10095; </div>
                 </div>
                 <div className="img-info-container">
-                    <Link to="/"> <div className="title" title="Watch Trailor"> {this.state.movies[this.state.currentImg - 1].name}  </div> </Link>
+                    <Link to={`/movie/${this.state.movies[this.state.currentImg - 1].name}`}> <div className="title" title="Watch Trailor"> {this.state.movies[this.state.currentImg - 1].name}  </div> </Link>
                     <div className="description"> {this.state.movies[this.state.currentImg - 1].description}  </div>
                     <div className="footer">
-                        <Link to="/">  <button title="Watch Trailor"> <i class="fi-xwsuxl-youtube"></i> Watch </button></Link>
+                        <Link to={`/movie/${this.state.movies[this.state.currentImg - 1].name}`}> <button title="Watch Trailor"> <i class="fi-xwsuxl-youtube"></i> Watch </button></Link>
                         <div className="rate-year">
                             <div className="year"> Year : {this.state.movies[this.state.currentImg - 1].year} </div>
                             <div className="rate"> Rated : <i class="fi-xwluxl-star-solid"></i> {this.state.movies[this.state.currentImg - 1].rate} </div>

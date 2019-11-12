@@ -4,6 +4,7 @@ import Recommendations from "./Recommendations"
 import MoviesHomeList from "./MoviesHomeList"
 import TvShowHomeList from "./TvShowHomeList"
 import Carrousel from "../Displayers/Carrousel"
+import ScrollBtn from "../Displayers/ScrollButton"
 import "./style.css"
 
 
@@ -18,6 +19,8 @@ const Home = (props) => {
         <MoviesHomeList />
         <div className="section-intro"> No Advertisements, No Interruptions, just Trailers. </div>
         <TvShowHomeList />
+        <ScrollBtn />
+        <div className="padding" />
     </div>
 }
 

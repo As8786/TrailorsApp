@@ -1,0 +1,30 @@
+@media screen and (max-width : 768px) {
+    .scrollBtn-container-active{
+        bottom: 27px ! important;
+    }
+    .scrollBtn-container-active button{
+        font-size: 2rem !important;
+    }
+}
+
+
+.scrollBtn-container-active{
+    position: fixed;
+    bottom: 117px;
+    right : 17px;
+    z-index: 150;
+}
+
+.scrollBtn-container-disabled {
+    display: none
+}
+
+
+.scrollBtn-container-active button{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-size: 2.2rem;
+    color: #138496;
+    cursor: pointer;
+}

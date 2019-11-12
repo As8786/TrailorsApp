@@ -1,8 +1,14 @@
+@media screen and (max-width : 768px) {
+    .movies-list {
+        justify-content: center !important;
+    }
+}
+
 .movies-list {
     width : 90%;
     display: flex;
-    justify-content: space-between;
     margin: auto;
     flex-wrap: wrap;
     position: relative;
+    justify-content: center;
 }
