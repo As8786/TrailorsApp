@@ -12,3 +12,8 @@
     position: relative;
     justify-content: center;
 }
+.movies-list .empty-result{
+    color: #17a2b8;
+    font-size: 1.2rem;
+    margin: 37px 0 0 0;
+}

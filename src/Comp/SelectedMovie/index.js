@@ -1,9 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 import ScrollBtn from "../Displayers/ScrollButton"
-import MoviesContext from '../../context/MoviesContext'
 import "./style.css"
-
 
 class SelectedMovie extends React.Component {
     state = {
@@ -19,11 +18,9 @@ class SelectedMovie extends React.Component {
         }
     }
 
-    static contextType = MoviesContext
-
     componentDidMount() {
         this.setState({
-            movie: this.context.filter(el => el.name === this.props.name)[0]
+            movie: { ...this.props.selectedMovie }
         })
     }
 
@@ -87,4 +84,12 @@ class SelectedMovie extends React.Component {
     }
 }
 
-export default SelectedMovie
+const mapStateToProps = state => {
+    return {
+        selectedMovie: state.SelectedMovieReducer
+    }
+}
+
+
+
+export default connect(mapStateToProps)(SelectedMovie)

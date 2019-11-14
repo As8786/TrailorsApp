@@ -20,7 +20,7 @@ class MoviesPage extends React.Component {
             </div>
             <Filters />
             <Pagination collectionLength={collectionLength} currentPage={actualPage} />
-            <MoviesList movies={moviesList} />
+            <MoviesList moviesList={moviesList} />
             <div className="padding" />
 
         </div>

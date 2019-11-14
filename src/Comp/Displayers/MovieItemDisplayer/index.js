@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from "react-redux"
 
+import { selectMovie } from "../../../Actions/actionsCreator"
 import './style.css'
 
 
@@ -19,7 +21,7 @@ class MovieItem extends React.Component {
                     <div className="genre" > {movie.genre.map((el, i) => <span key={i}> {el} </span>)} </div>
                     <div className="info" > <i className="fi-cnsuxl-info-solid"></i>
                     </div>
-                    <Link to={`/movie/${movie.name}`}> <button> Watch Now </button> </Link>
+                    <Link to={`/movie/${movie.name}`}> <button onClick={() => this.props.selectMovie(movie.name)}> Watch Now </button> </Link>
                 </div>
             </div>
             <div className="bottom-section">
@@ -30,5 +32,7 @@ class MovieItem extends React.Component {
     }
 }
 
-export default MovieItem
+
+
+export default connect(null, { selectMovie })(MovieItem)
 

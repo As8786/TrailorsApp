@@ -11,7 +11,7 @@ const Recommendations = () => {
             Recommendations
                 </div>
         <MoviesContext.Consumer >
-            {val => <MoviesList movies={val} />}
+            {val => <MoviesList moviesList={val} />}
         </MoviesContext.Consumer>
     </div>
 }

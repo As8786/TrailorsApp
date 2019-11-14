@@ -23,3 +23,10 @@ export const handlePagination = pageNumber => {
         payload: pageNumber
     }
 }
+
+export const selectMovie = movie => {
+    return {
+        type: actions.SELECT_MOVIE,
+        payload: movie
+    }
+}

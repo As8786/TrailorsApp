@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom"
 import './style.css'
+import SearchComp from '../SearchComp';
 
 class NavBar extends React.Component {
 
@@ -67,10 +68,7 @@ class NavBar extends React.Component {
                     </div>
                 </ul>
             </div>
-            <div className="search" id="search">
-                <input placeholder='Search...' />
-                <button> Search </button>
-            </div>
+            <SearchComp />
 
         </div>
     }

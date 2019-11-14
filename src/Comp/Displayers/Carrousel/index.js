@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 
+import { selectMovie } from "../../../Actions/actionsCreator"
 import "./style.css"
 
 class Carrousel extends React.Component {
@@ -143,6 +145,7 @@ class Carrousel extends React.Component {
     }
 
     render() {
+        let { movies, currentImg } = this.state
         return <div className="carrousel-container">
             <div className="img-container ">
                 <img src="./img/99.jpg" className="img-active" id="img-1" />
@@ -158,13 +161,13 @@ class Carrousel extends React.Component {
                     <div className="next" onClick={() => this.handlePrevNextClick('next')}> &#10095; </div>
                 </div>
                 <div className="img-info-container">
-                    <Link to={`/movie/${this.state.movies[this.state.currentImg - 1].name}`}> <div className="title" title="Watch Trailor"> {this.state.movies[this.state.currentImg - 1].name}  </div> </Link>
-                    <div className="description"> {this.state.movies[this.state.currentImg - 1].description}  </div>
+                    <Link to={`/movie/${movies[currentImg - 1].name}`}> <div className="title" title="Watch Trailor" onClick={() => this.props.selectMovie(movies[currentImg - 1].name)}> {movies[currentImg - 1].name}  </div> </Link>
+                    <div className="description"> {movies[currentImg - 1].description}  </div>
                     <div className="footer">
-                        <Link to={`/movie/${this.state.movies[this.state.currentImg - 1].name}`}> <button title="Watch Trailor"> <i class="fi-xwsuxl-youtube"></i> Watch </button></Link>
+                        <Link to={`/movie/${movies[currentImg - 1].name}`}> <button title="Watch Trailor" onClick={() => this.props.selectMovie(movies[currentImg - 1].name)}> <i class="fi-xwsuxl-youtube"></i> Watch </button></Link>
                         <div className="rate-year">
-                            <div className="year"> Year : {this.state.movies[this.state.currentImg - 1].year} </div>
-                            <div className="rate"> Rated : <i class="fi-xwluxl-star-solid"></i> {this.state.movies[this.state.currentImg - 1].rate} </div>
+                            <div className="year"> Year : {movies[currentImg - 1].year} </div>
+                            <div className="rate"> Rated : <i class="fi-xwluxl-star-solid"></i> {movies[currentImg - 1].rate} </div>
                         </div>
                     </div>
 
@@ -184,4 +187,4 @@ class Carrousel extends React.Component {
     }
 }
 
-export default Carrousel
+export default connect(null, { selectMovie })(Carrousel)
