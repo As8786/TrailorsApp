@@ -1,38 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-const SearchComp = () => {
+import './style.css'
+import { activateSearchSuggestion, disableSearchSuggestion, selectMovie, onSearchClick } from "../../../Actions/actionsCreator"
+
+const SuggestionDiv = ({ movie, disableSearchSuggestion, clearState, selectMovie }) => {
+    return <Link to={`/movie/${movie.name}`} onClick={() => {
+        clearState()
+        disableSearchSuggestion()
+        selectMovie(movie.name)
+    }}><div className="search-preselection-item">
+            <div className="search-preselection-img">
+                <img src={movie.img} />
+            </div>
+            <div className="search-preselection-infos">
+                <div className="name"> {movie.name} </div>
+                <div className="year">  {movie.year} </div>
+                <div className="rate"> Rated : <i class="fi-xwluxl-star-solid"></i> {movie.rate} </div>
+                <div className="stars">Genre : {movie.genre.map((el, i) => <span key={i}> {el}</span>)}</div>
+            </div>
+        </div>
+    </Link>
+}
+
+const handleSuggestionSearchresultDisplay = (serachedVal, searchSuggestionResult, disableSearchSuggestion, clearState, selectMovie) => {
+    if (serachedVal.trim().length > 1 && searchSuggestionResult.length > 0) {
+        return searchSuggestionResult.map((el, i) => <SuggestionDiv movie={el} key={i} selectMovie={selectMovie} clearState={clearState} disableSearchSuggestion={disableSearchSuggestion} />)
+    } else if (serachedVal.trim() !== "" && searchSuggestionResult.length === 0) {
+        return <div className="empty-result-div"> No Result </div>
+    }
+}
+
+const SearchComp = ({ searchSuggestionResult, activateSearchSuggestion, disableSearchSuggestion, selectMovie, onSearchClick }) => {
     let [searchValue, setSearchValue] = useState('')
 
-    return <div className="search" id="search">
-        <input placeholder='Search...' onChange={(e) => setSearchValue(e.target.value)} />
-        <button> Search </button>
-        <div className="search-preselection">
-            <div className="search-preselection-item">
-                <div className="search-preselection-img">
-                    <img src={movie.img} />
-                </div>
-                <div className="search-preselection-infos">
-                    <div className="name"> {movie.name} </div>
-                    <div className="year">  {movie.year} </div>
-                    <div className="rate"> Rated : <i class="fi-xwluxl-star-solid"></i> {movie.rate} </div>
-                    <div className="stars">Genre : {movie.genre.map((el, i) => <span key={i}> {el}</span>)}</div>
-                </div>
-            </div>
+    const clearState = () => setSearchValue('')
 
+    return <div className="search" id="search">
+        <input placeholder='Search...' onChange={(e) => {
+            setSearchValue(e.target.value)
+            activateSearchSuggestion(e.target.value)
+        }} value={searchValue} />
+        <Link to={`/search/${searchValue}`}> <i class="fi-xnsuhl-search" onClick={() => {
+            setSearchValue('')
+            onSearchClick(searchValue)
+        }}></i> </Link>
+        <Link to={`/search/${searchValue}`}> <button onClick={() => {
+            setSearchValue('')
+            onSearchClick(searchValue)
+        }} > Search </button> </Link>
+        <div className="search-preselection">
+            {handleSuggestionSearchresultDisplay(searchValue, searchSuggestionResult, disableSearchSuggestion, clearState, selectMovie)}
         </div>
-    </div>
+    </div >
 }
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        searchSuggestionResult: state.SearchSuggesttionReducer
+    }
 }
 
-export default connect(mapStateToProps, {})(SearchComp)
-
-
-let movie = {
-    name: "Snatch ", language: ["French", "English"], stars: ["Jason Statham", "Brad Pitt", "Benicio Del Toro"], director: "Guy Ritchie", yot: "9Jar2XkBboo",
-    description: `Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.`,
-    genre: ["Comedy", "Sci-Fi"], year: 2000, rate: 8.3, img: "https://m.media-amazon.com/images/M/MV5BMTA2NDYxOGYtYjU1Mi00Y2QzLTgxMTQtMWI1MGI0ZGQ5MmU4XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SY1000_SX684_AL_.jpg"
-}
+export default connect(mapStateToProps, { activateSearchSuggestion, disableSearchSuggestion, selectMovie, onSearchClick })(SearchComp)

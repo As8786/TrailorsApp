@@ -30,3 +30,23 @@ export const selectMovie = movie => {
         payload: movie
     }
 }
+
+export const activateSearchSuggestion = searchedValue => {
+    return {
+        type: actions.SEARCH_SUGGESTION_ACTIVATED,
+        payload: searchedValue
+    }
+}
+
+export const disableSearchSuggestion = () => {
+    return {
+        type: actions.SEARCH_SUGGESTION_DISABLED
+    }
+}
+
+export const onSearchClick = searchedValue => {
+    return {
+        type: actions.SEARCH_RESULT,
+        payload: searchedValue
+    }
+}

@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
+import { selectMovie } from "../../Actions/actionsCreator"
 import ScrollBtn from "../Displayers/ScrollButton"
 import "./style.css"
 
-class SelectedMovie extends React.Component {
+class SelectedMovie extends React.PureComponent {
     state = {
         btnValue: "Show More",
         movie: {
@@ -19,9 +20,7 @@ class SelectedMovie extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            movie: { ...this.props.selectedMovie }
-        })
+        this.props.selectMovie(this.props.name)
     }
 
     toggleBtnValue = () => {
@@ -44,7 +43,7 @@ class SelectedMovie extends React.Component {
     }
 
     render() {
-        let { movie } = this.state
+        let movie = this.props.selectedMovie
         return <div className="selected-movie-container">
             <div className="player-wraper">
                 <iframe width="560" height="315" src={`https://www.youtube.com/embed/${movie.yot}`} frameborder="0" gesture="media" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -92,4 +91,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps)(SelectedMovie)
+export default connect(mapStateToProps, { selectMovie })(SelectedMovie)

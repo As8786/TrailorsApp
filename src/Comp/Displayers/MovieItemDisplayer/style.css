@@ -1,8 +1,18 @@
+@media screen and (max-width:452px) {
+    .movie-card{
+        margin: 17px 10px !important;
+    }
+}
+
 @media screen and (max-width : 768px) {
     .movie-card{
         width: 140px !important;
         height: 250px !important;
-        margin: 17px 17px !important;
+        margin: 17px  ;
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */   
     }
 }
 
@@ -16,15 +26,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     box-shadow: 0.2rem 0.2rem 1rem #888888;
-    transition: 0.5s ease
+    transition: 1s ease-in;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */   
 }
 
-.movie-card:hover {
+
+
+.movie-card:hover{
     transform:  rotate3d(0,1,0, 180deg)
 }
-
 
 .movie-card .img-container {
     width: 100%;
@@ -63,7 +77,7 @@
     width: 100%;
     transform:  rotate3d(0,1,0, 180deg);
     display: none;
-    color: whitesmoke
+    color: whitesmoke;
 }
 
 .movie-card:hover .img-container .movie-info{
@@ -128,7 +142,7 @@
 .movie-card .bottom-section .movie-rate{
     display: none;
     transform: rotate3d(0,1,0,180deg);
-    transition : 1s ease;
+
 }
 
 .movie-card:hover .bottom-section .movie-rate{

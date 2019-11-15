@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom"
+import { connect } from 'react-redux'
+
 import './style.css'
 import SearchComp from '../SearchComp';
+import { onSearchClick } from "../../../Actions/actionsCreator"
 
 class NavBar extends React.Component {
 
@@ -74,4 +77,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar
+export default connect(null, { onSearchClick })(NavBar)

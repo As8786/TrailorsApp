@@ -5,11 +5,13 @@ import Home from "./Comp/Home"
 import MoviesPage from "./Comp/MoviesPage"
 import Carrousel from './Comp/Displayers/Carrousel';
 import SelectedMovie from './Comp/SelectedMovie';
+import SearchResultComp from "./Comp/SearchResultComp"
 
 const Routes = () => {
     return <div className="routes-container">
         <Route exact path="/" render={(props) => <Home  {...props} />} />
         <Route exact path="/movies-list" component={MoviesPage} />
+        <Route exact path="/search/:searchValue" render={(props) => <SearchResultComp searchValue={props.match.params.searchValue} />} />
         <Route exact path="/carrousel" component={Carrousel} />
         <Route exact path="/movie/:name" render={(props) => <SelectedMovie name={props.match.params.name} />} />
     </div>

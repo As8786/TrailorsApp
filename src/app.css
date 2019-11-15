@@ -17,3 +17,7 @@ body {
 	height: 160px;
 	width: 100%;
 }
+
+a {
+	text-decoration: none !important
+}

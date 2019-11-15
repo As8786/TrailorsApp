@@ -5,10 +5,14 @@ import { connect } from 'react-redux';
 const PaginationHanlder = (ChildComp) => {
     class PaginationHOC extends React.Component {
         render() {
+            let { moviesReducer, actualPage, searchResult } = this.props
             return <ChildComp  {...this.props}
-                moviesList={this.props.moviesReducer.moviesList.filter((el, i) => i < (24 * this.props.actualPage) && i >= (24 * this.props.actualPage) - 24)}
-                collectionLength={this.props.moviesReducer.collectionLength}
-                actualPage={this.props.actualPage}
+                moviesList={ChildComp.name === "SearchResultDisplay" ?
+                    searchResult.moviesList.filter((el, i) => i < (24 * actualPage) && i >= (24 * actualPage) - 24)
+                    : moviesReducer.moviesList.filter((el, i) => i < (24 * actualPage) && i >= (24 * actualPage) - 24)}
+
+                collectionLength={ChildComp.name === "SearchResultDisplay" ? searchResult.moviesList.length : moviesReducer.collectionLength}
+                actualPage={actualPage}
             />
         }
     }
@@ -16,6 +20,7 @@ const PaginationHanlder = (ChildComp) => {
     const mapStateToProps = state => {
         return {
             moviesReducer: state.MoviesReducer,
+            searchResult: state.SearchResultReducer,
             actualPage: state.PaginationReducer
         }
     }

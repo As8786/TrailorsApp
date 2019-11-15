@@ -12,7 +12,8 @@
     align-items: center;
     justify-content: space-around;
     font-size: .8rem;
-    text-align: center
+    text-align: center;
+    padding: 10px 0;
 }
 
 .footer-container .social-media .img-container i{

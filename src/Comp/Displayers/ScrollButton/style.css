@@ -28,3 +28,8 @@
     color: #138496;
     cursor: pointer;
 }
+
+.scrollBtn-container-active button:hover{
+    background: none;
+    color: #083036
+}

@@ -1,39 +1,28 @@
 import * as actions from "../Actions"
 
-const MoviesReducer = (state = initialState, action) => {
+const SearchResultReducer = (state = initialState, action) => {
     switch (action.type) {
-        case actions.SET_FILTER:
-            state = initialState
-            state.isFilterActivated = true
-            if (action.payload.genre) {
-                state = { ...state, moviesList: state.moviesList.filter(el => el.genre.indexOf(action.payload.genre) !== -1) }
+        case actions.SEARCH_RESULT:
+            return {
+                ...initialState, moviesList: initialState.moviesList.filter(el => el.name.toLowerCase()
+                    .search(clearSearchValue(action.payload)) !== -1)
             }
-            if (action.payload.from) {
-                state = { ...state, moviesList: state.moviesList.filter(el => el.year >= action.payload.from) }
-            }
-            if (action.payload.to) {
-                state = { ...state, moviesList: state.moviesList.filter(el => el.year <= action.payload.to) }
-            }
-            if (action.payload.rate) {
-                state = { ...state, moviesList: state.moviesList.filter(el => el.rate >= action.payload.rate) }
-            }
-            if (action.payload.language) {
-                state = { ...state, moviesList: state.moviesList.filter(el => el.language.indexOf(action.payload.language) !== -1) }
-            }
-            return { ...state, collectionLength: state.moviesList.length }
-
-        case actions.CLEAR_FILTER:
-            return { ...initialState, collectionLength: initialState.moviesList.length }
         default:
             return { ...state, collectionLength: state.moviesList.length }
     }
 }
 
+const clearSearchValue = searchedValue => {
+    let searchedValueArray = searchedValue.toLowerCase().split(' ')
+    searchedValueArray = searchedValueArray.filter(el => el !== "")
+    searchedValue = searchedValueArray.join(' ')
+    return searchedValue
+}
 
-export default MoviesReducer
+
+export default SearchResultReducer
 
 let initialState = {
-    collectionLength: 0,
     moviesList: [
         {
             name: "The Godfather", language: ["French", "English"], genre: ["Drama", "Crime"], stars: ["Marlon Brando", "Al Pacino", "James Caan"], director: "Francis Ford Coppola", yot: "1x0GpEZnwa8",
@@ -333,13 +322,13 @@ let initialState = {
             genre: ["Drama"], year: 1999, rate: 8.8,
             img: "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,666,1000_AL_.jpg"
         },
-        /* {
-             name: "", language: ["French", "English"],
-             stars: [""],
-             director: "", yot: "",
-             description: ``,
-             genre: [""], year: 0, rate: 0,
-             img: ""
-         },*/
+        /*{
+            name: "", language: ["French", "English"],
+            stars: [""],
+            director: "", yot: "",
+            description: ``,
+            genre: [""], year: 0, rate: 0,
+            img: ""
+        },*/
     ]
 }
