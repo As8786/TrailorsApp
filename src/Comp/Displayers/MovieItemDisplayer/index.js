@@ -11,7 +11,7 @@ class MovieItem extends React.Component {
 
     render() {
         let { movie } = this.props
-        return <div className="movie-card">
+        return <div className="movie-card" id="movie-card">
             <div className="img-container">
                 <img src={movie.img} />
                 <div className="shadow" />

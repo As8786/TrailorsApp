@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import './style.css'
 import SearchComp from '../SearchComp';
-import { onSearchClick } from "../../../Actions/actionsCreator"
+import { clearFilters, handlePagination } from "../../../Actions/actionsCreator"
 
 class NavBar extends React.Component {
 
@@ -37,10 +37,13 @@ class NavBar extends React.Component {
                     </Link>
                 </div>
                 <div className="links" >
-                    <Link title='Movie' to="/movies-list">
+                    <Link title='Movie' to="/movies-list" onClick={() => {
+                        this.props.clearFilters()
+                        this.props.handlePagination(1)
+                    }}>
                         Movie
                     </Link>
-                    <Link to='/carrousel' title='TV Shows'>
+                    <Link to='/tvshows-list' title='TV Shows'>
                         TV Shows
                     </Link>
                     <div className="my-account-container" title='My Account'>
@@ -55,11 +58,16 @@ class NavBar extends React.Component {
             <div className="responsive-menu" onClick={this.handleBurgerMenuDisplay}>
                 <i className="fi-xnsuxl-three-bars-solid"></i>
                 <ul id="ul-menu" className="ul-disabled">
-
-                    <Link title='Movie' to="/movies-list">
+                    <Link title='Home' to='/'>
+                        Home Page
+                </Link>
+                    <Link title='Movie' to="/movies-list" onClick={() => {
+                        this.props.clearFilters()
+                        this.props.handlePagination(1)
+                    }}>
                         Movie
                 </Link>
-                    <Link title='TV Shows' to='/carrousel'>
+                    <Link title='TV Shows' to='/tvshows-list'>
                         TV Shows
                 </Link>
                     <div className="my-account-container-resp" title='My Account'>
@@ -77,4 +85,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default connect(null, { onSearchClick })(NavBar)
+export default connect(null, { clearFilters, handlePagination })(NavBar)

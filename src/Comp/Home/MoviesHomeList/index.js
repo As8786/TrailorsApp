@@ -14,7 +14,7 @@ const MoviesHomeList = () => {
             </Link>
         </div>
         <MoviesContext.Consumer >
-            {val => <MoviesList moviesList={val} />}
+            {val => <MoviesList moviesList={val.filter((el, i) => i < 24)} />}
         </MoviesContext.Consumer>
     </div>
 }

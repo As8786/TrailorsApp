@@ -8,7 +8,7 @@ const TvShowHomeList = () => {
     return <div className="tvShowHomeList-container">
         <div className='section-title'> <i className="fi-ctsuxl-videocamera-thin"></i> TV Shows </div>
         <MoviesContext.Consumer >
-            {val => <MoviesList moviesList={val} />}
+            {val => <MoviesList moviesList={val.filter((el, i) => el.type === "tvshows")} />}
         </MoviesContext.Consumer>
     </div>
 }

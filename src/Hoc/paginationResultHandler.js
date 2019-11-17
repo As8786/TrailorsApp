@@ -6,13 +6,23 @@ const PaginationHanlder = (ChildComp) => {
     class PaginationHOC extends React.Component {
         render() {
             let { moviesReducer, actualPage, searchResult } = this.props
+            let tvShowsList = moviesReducer.filter(el => el.type === "tvshows")
+            let moviesList = moviesReducer.filter(el => el.type !== "tvshows")
+            let pathName = this.props.location.pathname
+
             return <ChildComp  {...this.props}
                 moviesList={ChildComp.name === "SearchResultDisplay" ?
-                    searchResult.moviesList.filter((el, i) => i < (24 * actualPage) && i >= (24 * actualPage) - 24)
-                    : moviesReducer.moviesList.filter((el, i) => i < (24 * actualPage) && i >= (24 * actualPage) - 24)}
+                    searchResult.filter((el, i) => i < (24 * actualPage) && i >= (24 * actualPage) - 24)
+                    : pathName === "/tvshows-list" ?
+                        tvShowsList.filter((el, i) => i < (24 * actualPage) && i >= (24 * actualPage) - 24)
+                        : moviesList.filter((el, i) => i < (24 * actualPage) && i >= (24 * actualPage) - 24)
+                }
 
-                collectionLength={ChildComp.name === "SearchResultDisplay" ? searchResult.moviesList.length : moviesReducer.collectionLength}
+                collectionLength={ChildComp.name === "SearchResultDisplay" ? searchResult.length :
+                    pathName !== "/tvshows-list" ? moviesList.length : tvShowsList.length
+                }
                 actualPage={actualPage}
+                pathName={pathName}
             />
         }
     }

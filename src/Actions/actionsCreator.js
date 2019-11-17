@@ -44,9 +44,16 @@ export const disableSearchSuggestion = () => {
     }
 }
 
-export const onSearchClick = searchedValue => {
+export const onNavBarSearchClickAction = searchedValue => {
     return {
-        type: actions.SEARCH_RESULT,
+        type: actions.SEARCH_ITEM_BY_NAME,
         payload: searchedValue
+    }
+}
+
+export const onStarSearchLickClickAction = starName => {
+    return {
+        type: actions.SEARCH_ITEM_BY_STAR,
+        payload: starName
     }
 }

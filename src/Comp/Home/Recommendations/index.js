@@ -11,7 +11,7 @@ const Recommendations = () => {
             Recommendations
                 </div>
         <MoviesContext.Consumer >
-            {val => <MoviesList moviesList={val} />}
+            {val => <MoviesList moviesList={val.filter(el => el.rate > 8.5)} />}
         </MoviesContext.Consumer>
     </div>
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import './style.css'
-import { activateSearchSuggestion, disableSearchSuggestion, selectMovie, onSearchClick } from "../../../Actions/actionsCreator"
+import { activateSearchSuggestion, disableSearchSuggestion, selectMovie, onNavBarSearchClickAction } from "../../../Actions/actionsCreator"
 
 const SuggestionDiv = ({ movie, disableSearchSuggestion, clearState, selectMovie }) => {
     return <Link to={`/movie/${movie.name}`} onClick={() => {
@@ -32,7 +32,7 @@ const handleSuggestionSearchresultDisplay = (serachedVal, searchSuggestionResult
     }
 }
 
-const SearchComp = ({ searchSuggestionResult, activateSearchSuggestion, disableSearchSuggestion, selectMovie, onSearchClick }) => {
+const SearchComp = ({ searchSuggestionResult, activateSearchSuggestion, disableSearchSuggestion, selectMovie, onNavBarSearchClickAction }) => {
     let [searchValue, setSearchValue] = useState('')
 
     const clearState = () => setSearchValue('')
@@ -44,11 +44,11 @@ const SearchComp = ({ searchSuggestionResult, activateSearchSuggestion, disableS
         }} value={searchValue} />
         <Link to={`/search/${searchValue}`}> <i class="fi-xnsuhl-search" onClick={() => {
             setSearchValue('')
-            onSearchClick(searchValue)
+            onNavBarSearchClickAction(searchValue)
         }}></i> </Link>
         <Link to={`/search/${searchValue}`}> <button onClick={() => {
             setSearchValue('')
-            onSearchClick(searchValue)
+            onNavBarSearchClickAction(searchValue)
         }} > Search </button> </Link>
         <div className="search-preselection">
             {handleSuggestionSearchresultDisplay(searchValue, searchSuggestionResult, disableSearchSuggestion, clearState, selectMovie)}
@@ -62,4 +62,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { activateSearchSuggestion, disableSearchSuggestion, selectMovie, onSearchClick })(SearchComp)
+export default connect(mapStateToProps, { activateSearchSuggestion, disableSearchSuggestion, selectMovie, onNavBarSearchClickAction })(SearchComp)

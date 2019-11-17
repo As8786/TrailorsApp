@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import { selectMovie } from "../../Actions/actionsCreator"
+import { selectMovie, onStarSearchLickClickAction } from "../../Actions/actionsCreator"
 import ScrollBtn from "../Displayers/ScrollButton"
 import "./style.css"
 
@@ -66,11 +67,11 @@ class SelectedMovie extends React.PureComponent {
                 <div id="more-infos" className="more-infos-disabled" >
                     <div className="director">
                         <span id="section-span" >Director : </span>
-                        <span>{movie.director}</span>
+                        <span><Link to={`/search/star/${movie.director}`} onClick={() => this.props.onStarSearchLickClickAction(movie.director)}>  {movie.director}</Link></span>
                     </div>
                     <div className="actors">
-                        <span id="section-span" >Actors : </span>
-                        {movie.stars.map((el, i) => <span key={i} > {el} </span>)}
+                        <span id="section-span" > Actors : </span>
+                        {movie.stars.map((el, i) => <span key={i} > <Link to={`/search/star/${el}`} onClick={() => this.props.onStarSearchLickClickAction(el)}> {el} </Link> </span>)}
                     </div>
                     <div className="genre">
                         <span id="section-span" >Genres : </span>
@@ -91,4 +92,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, { selectMovie })(SelectedMovie)
+export default connect(mapStateToProps, { selectMovie, onStarSearchLickClickAction })(SelectedMovie)

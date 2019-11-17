@@ -3,6 +3,19 @@
         padding: 80px 0 150px !important
     }
    
+    .selected-movie-container .player-wraper{
+        width : 95% !important;
+        height: 50vh !important;
+        margin: 20px 0 40px 0 !important    ;
+    }
+    
+    .selected-movie-container iframe{
+        width : 95%;
+        height: 90%;
+        border-radius: 7px;
+    }
+
+
     .selected-movie-container .movie-infos .movie-img-description .img-container{
         display: none !important;
 
@@ -65,7 +78,35 @@
     }
 }
 
+@media screen and (max-width : 768px) {
+    .selected-movie-container .player-wraper{
+        width : 95% !important;
+        height: 70vh !important;
+        margin: 20px 0 40px 0 !important    ;
+    }
+    
+    .selected-movie-container iframe{
+        width : 95%;
+        height: 90%;
+        border-radius: 7px;
+    }
+}
+
+
 @media screen and (min-width : 769px) and (max-width : 1024px) {
+
+    .selected-movie-container .player-wraper{
+        width : 95% !important;
+        height: 70vh !important;
+        margin: 20px 0 40px 0 !important    ;
+    }
+    
+    .selected-movie-container iframe{
+        width : 95%;
+        height: 90%;
+        border-radius: 7px;
+    }
+  
     .selected-movie-container .movie-infos .movie-img-description .img-container{
         width: 200px !important;
         height: 200px !important;
@@ -290,4 +331,10 @@
 	font-family: 'Roboto Slab', serif;
     cursor: pointer;
     margin: 7px 7px 0 0;
+}
+
+.selected-movie-container a {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
 }

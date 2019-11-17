@@ -153,7 +153,7 @@
 .navbar-container .responsive-menu ul a {
 	margin: 7px 0;
 	color: grey;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	text-decoration: none;
 	transition: 0.7s ease;
 }
@@ -164,7 +164,7 @@
 
 .navbar-container .responsive-menu .my-account-container-resp {
 	color: grey;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	text-decoration: none;
 	transition: 0.7s ease;
 	cursor: pointer;

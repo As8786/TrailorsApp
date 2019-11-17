@@ -1,3 +1,9 @@
+@media screen and (max-width : 452px) {
+    .pagination-container #btn-text{
+        width: 42px !important
+    } 
+}
+ 
 .pagination-container{
     display: flex;
     margin: 17px 0;
@@ -23,7 +29,7 @@
 }
 
 .pagination-container #btn-text{
-    width: 55px !important
+    width: 55px 
 }
 
 .pagination-container .active{
